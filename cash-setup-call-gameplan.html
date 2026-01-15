@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>No Fluff - Cash Setup Call Gameplan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0D0D0D 0%, #1A1A2E 50%, #16213E 100%);
+      font-family: 'Outfit', system-ui, sans-serif;
+      color: #FFFFFF;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    .bg-glow-1 {
+      position: fixed;
+      top: -50%;
+      right: -20%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bg-glow-2 {
+      position: fixed;
+      bottom: -30%;
+      left: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 0, 110, 0.06) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 24px;
+      background: rgba(0, 212, 255, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      border-radius: 100px;
+      margin-bottom: 16px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: #00D4FF;
+    }
+
+    .main-title {
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      text-shadow: 0 0 40px rgba(0, 212, 255, 0.5);
+    }
+
+    .subtitle {
+      font-size: clamp(18px, 3vw, 26px);
+      font-weight: 300;
+      margin-top: 10px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 4px;
+    }
+
+    .gradient-bar {
+      height: 3px;
+      width: 200px;
+      margin: 24px auto;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #00D4FF, #FF006E, #7B2CBF, #2EC4B6);
+      background-size: 300% 100%;
+      animation: gradientMove 8s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .tagline {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+      font-style: italic;
+    }
+
+    /* What This Call Is */
+    .intro-box {
+      background: rgba(0, 212, 255, 0.05);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+
+    .intro-box h3 {
+      color: #00D4FF;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      color: rgba(255,255,255,0.8);
+      font-size: 15px;
+    }
+
+    /* Phase Headers */
+    .phase {
+      margin-bottom: 40px;
+    }
+
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .phase-number {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    .phase-number.prep { background: rgba(123, 44, 191, 0.2); color: #7B2CBF; }
+    .phase-number.open { background: rgba(0, 212, 255, 0.2); color: #00D4FF; }
+    .phase-number.steps { background: rgba(46, 196, 182, 0.2); color: #2EC4B6; }
+    .phase-number.post { background: rgba(255, 107, 53, 0.2); color: #FF6B35; }
+    .phase-number.objections { background: rgba(255, 0, 110, 0.2); color: #FF006E; }
+
+    .phase-title {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .phase-time {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-left: auto;
+    }
+
+    /* Cards */
+    .card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Expandable Steps */
+    .step-header {
+      padding: 20px 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .step-header:hover {
+      background: rgba(255,255,255,0.02);
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step-number.cyan { background: rgba(0, 212, 255, 0.2); color: #00D4FF; }
+    .step-number.orange { background: rgba(255, 107, 53, 0.2); color: #FF6B35; }
+    .step-number.purple { background: rgba(123, 44, 191, 0.2); color: #7B2CBF; }
+    .step-number.teal { background: rgba(46, 196, 182, 0.2); color: #2EC4B6; }
+    .step-number.pink { background: rgba(255, 0, 110, 0.2); color: #FF006E; }
+    .step-number.yellow { background: rgba(255, 217, 61, 0.2); color: #FFD93D; }
+
+    .step-info {
+      flex: 1;
+    }
+
+    .step-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .step-subtitle {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .step-toggle {
+      font-size: 20px;
+      color: rgba(255,255,255,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .step-header.active .step-toggle {
+      transform: rotate(180deg);
+    }
+
+    .step-content {
+      display: none;
+      padding: 0 24px 24px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .step-content.show {
+      display: block;
+    }
+
+    /* Ask Box */
+    .ask-box {
+      background: rgba(0, 212, 255, 0.08);
+      border-left: 3px solid #00D4FF;
+      padding: 16px 20px;
+      margin: 16px 0;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .ask-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #00D4FF;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .ask-text {
+      font-size: 15px;
+      color: rgba(255,255,255,0.9);
+      font-style: italic;
+    }
+
+    /* Decision Boxes */
+    .decisions {
+      margin: 20px 0;
+    }
+
+    .decision-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .decision-item {
+      display: flex;
+      gap: 12px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.02);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      align-items: flex-start;
+    }
+
+    .decision-letter {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.7);
+    }
+
+    .decision-content {
+      flex: 1;
+    }
+
+    .decision-if {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 6px;
+    }
+
+    .decision-then {
+      font-size: 13px;
+      color: #2EC4B6;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .decision-then::before {
+      content: '→';
+      color: #2EC4B6;
+    }
+
+    /* Flags */
+    .flags-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .flags-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .flags-box {
+      padding: 16px;
+      border-radius: 12px;
+    }
+
+    .flags-box.red {
+      background: rgba(255, 0, 110, 0.08);
+      border: 1px solid rgba(255, 0, 110, 0.2);
+    }
+
+    .flags-box.green {
+      background: rgba(46, 196, 182, 0.08);
+      border: 1px solid rgba(46, 196, 182, 0.2);
+    }
+
+    .flags-title {
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .flags-title.red { color: #FF006E; }
+    .flags-title.green { color: #2EC4B6; }
+
+    .flag-item {
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      padding: 6px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .flag-item::before {
+      content: '•';
+    }
+
+    /* Warning Box */
+    .warning-box {
+      background: rgba(255, 0, 110, 0.08);
+      border: 1px solid rgba(255, 0, 110, 0.25);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-top: 20px;
+    }
+
+    .warning-title {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #FF006E;
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .warning-item {
+      font-size: 13px;
+      color: rgba(255, 107, 107, 0.9);
+      padding: 4px 0;
+    }
+
+    /* Checklist */
+    .checklist {
+      margin: 16px 0;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .checklist-item:last-child {
+      border-bottom: none;
+    }
+
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      border: 2px solid #2EC4B6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #2EC4B6;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .checklist-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* Post-Call Outcomes */
+    .outcomes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 700px) {
+      .outcomes-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .outcome-card {
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .outcome-card.green {
+      background: rgba(46, 196, 182, 0.1);
+      border: 1px solid rgba(46, 196, 182, 0.3);
+    }
+
+    .outcome-card.yellow {
+      background: rgba(255, 217, 61, 0.1);
+      border: 1px solid rgba(255, 217, 61, 0.3);
+    }
+
+    .outcome-card.red {
+      background: rgba(255, 0, 110, 0.1);
+      border: 1px solid rgba(255, 0, 110, 0.3);
+    }
+
+    .outcome-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .outcome-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .outcome-title.green { color: #2EC4B6; }
+    .outcome-title.yellow { color: #FFD93D; }
+    .outcome-title.red { color: #FF006E; }
+
+    .outcome-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Objection Accordion */
+    .objection-header {
+      padding: 18px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .objection-header:hover {
+      background: rgba(255,255,255,0.02);
+    }
+
+    .objection-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255, 0, 110, 0.15);
+      color: #FF006E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .objection-text {
+      flex: 1;
+      font-size: 15px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .objection-toggle {
+      font-size: 18px;
+      color: rgba(255,255,255,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .objection-header.active .objection-toggle {
+      transform: rotate(180deg);
+    }
+
+    .objection-content {
+      display: none;
+      padding: 0 20px 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .objection-content.show {
+      display: block;
+    }
+
+    .objection-meaning {
+      background: rgba(255, 107, 53, 0.08);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin: 14px 0;
+    }
+
+    .objection-meaning-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #FF6B35;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .objection-meaning-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .objection-response {
+      background: rgba(46, 196, 182, 0.08);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+
+    .objection-response-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #2EC4B6;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .objection-response-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* Scoring Box */
+    .scoring-box {
+      background: linear-gradient(135deg, rgba(123, 44, 191, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
+      border: 1px solid rgba(123, 44, 191, 0.25);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 30px;
+    }
+
+    .scoring-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #7B2CBF;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .scoring-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 500px) {
+      .scoring-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .score-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      font-size: 13px;
+    }
+
+    .score-label {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .score-value {
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+    }
+
+    .score-value.positive { color: #2EC4B6; }
+    .score-value.negative { color: #FF006E; }
+
+    .scoring-result {
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      padding: 14px 18px;
+      text-align: center;
+    }
+
+    .scoring-result-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .scoring-result-text strong {
+      color: #FFD93D;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* Log Items */
+    .log-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 500px) {
+      .log-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .log-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .log-icon {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="badge">STUDENT TRAINING GUIDE</div>
+      <h1 class="main-title">CASH SETUP CALL</h1>
+      <h2 class="subtitle">GAMEPLAN</h2>
+      <div class="gradient-bar"></div>
+    </header>
+
+    <!-- What This Call Is -->
+    <div class="intro-box">
+      <h3>🎯 YOUR ONLY GOAL ON THIS CALL</h3>
+      <p><strong>Diagnose and decide</strong> if this deal is worth a negotiation call. You're not here to "lock it up" — you're here to gather intel, set frame, and qualify.</p>
+    </div>
+
+    <!-- Phase 0: Prep -->
+    <section class="phase">
+      <div class="phase-header">
+        <span class="phase-number prep">PHASE 0</span>
+        <h2 class="phase-title">Before the Call</h2>
+        <span class="phase-time">2 MIN PREP</span>
+      </div>
+
+      <div class="card">
+        <div class="step-content show" style="padding-top: 20px;">
+          <p style="color: rgba(255,255,255,0.6); margin-bottom: 16px; font-size: 14px;">Show up calm, prepared, and NOT needy.</p>
+          
+          <div class="checklist">
+            <div class="checklist-item">
+              <span class="check-icon">✓</span>
+              <span class="checklist-text">Confirm this is <strong>Cash Path</strong> (ugly house / needs work / discount needed)</span>
+            </div>
+            <div class="checklist-item">
+              <span class="check-icon">✓</span>
+              <span class="checklist-text">Write down: address, quick notes from agent, condition flags</span>
+            </div>
+            <div class="checklist-item">
+              <span class="check-icon">✓</span>
+              <span class="checklist-text">Your mindset: diagnose + decide if it's worth a negotiation call</span>
+            </div>
+          </div>
+
+          <div class="warning-box">
+            <div class="warning-title">🚫 GUARD RAIL</div>
+            <div class="warning-item">If you're "hoping to lock it up" on this call, you're already off-track.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phase 1: Opening -->
+    <section class="phase">
+      <div class="phase-header">
+        <span class="phase-number open">PHASE 1</span>
+        <h2 class="phase-title">The Opening</h2>
+        <span class="phase-time">30 SEC</span>
+      </div>
+
+      <div class="card">
+        <div class="step-content show" style="padding-top: 20px;">
+          <p style="color: rgba(255,255,255,0.6); margin-bottom: 16px; font-size: 14px;">Set frame + lower defenses. You're not a corporate buyer.</p>
+          
+          <div class="checklist">
+            <div class="checklist-item">
+              <span class="check-icon">1</span>
+              <span class="checklist-text">Reference where the call came from (light + normal)</span>
+            </div>
+            <div class="checklist-item">
+              <span class="check-icon">2</span>
+              <span class="checklist-text">Position yourself as the one who "underwrites" and figures out "where we need to be"</span>
+            </div>
+            <div class="checklist-item">
+              <span class="check-icon">3</span>
+              <span class="checklist-text">Transition into Step 1 question</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phase 2: The 6 Steps -->
+    <section class="phase">
+      <div class="phase-header">
+        <span class="phase-number steps">PHASE 2</span>
+        <h2 class="phase-title">The 6-Step Cash Call</h2>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="card">
+        <div class="step-header" onclick="toggleStep(this)">
+          <div class="step-number cyan">1</div>
+          <div class="step-info">
+            <div class="step-title">Where Are They in the Process?</div>
+            <div class="step-subtitle">Gauge competition level</div>
+          </div>
+          <span class="step-toggle">▼</span>
+        </div>
+        <div class="step-content">
+          <div class="ask-box">
+            <div class="ask-label">ASK THIS</div>
+            <div class="ask-text">"Where are you guys at in the process right now?"</div>
+          </div>
+
+          <div class="decisions">
+            <div class="decision-label">IF THEY SAY...</div>
+            
+            <div class="decision-item">
+              <div class="decision-letter">A</div>
+              <div class="decision-content">
+                <div class="decision-if">"We're collecting offers / talking to investors"</div>
+                <div class="decision-then">Proceed to Step 2, but mark <strong>COMPETITION = HIGH</strong></div>
+              </div>
+            </div>
+
+            <div class="decision-item">
+              <div class="decision-letter">B</div>
+              <div class="decision-content">
+                <div class="decision-if">"They're just now ready / we're early"</div>
+                <div class="decision-then">Proceed normally, mark <strong>COMPETITION = LOW</strong></div>
+              </div>
+            </div>
+
+            <div class="decision-item">
+              <div class="decision-letter">C</div>
+              <div class="decision-content">
+                <div class="decision-if">"We already have offers near asking"</div>
+                <div class="decision-then">Mark <strong>LIKELY NO</strong> — exit gracefully, don't chase</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flags-row">
+            <div class="flags-box red">
+              <div class="flags-title red">🚩 RED FLAGS</div>
+              <div class="flag-item">"Best and final already"</div>
+              <div class="flag-item">"Multiple offers, deciding today"</div>
+              <div class="flag-item">"Seller won't entertain discounts"</div>
+            </div>
+            <div class="flags-box green">
+              <div class="flags-title green">✅ GREEN FLAGS</div>
+              <div class="flag-item">"They want convenience"</div>
+              <div class="flag-item">"They're tired of it"</div>
+              <div class="flag-item">"Open to as-is offers"</div>
+            </div>
+          </div>
+
+          <div class="warning-box">
+            <div class="warning-title">🚫 DO NOT</div>
+            <div class="warning-item">• Compete in bidding wars</div>
+            <div class="warning-item">• Chase deals with multiple strong offers</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="card">
+        <div class="step-header" onclick="toggleStep(this)">
+          <div class="step-number orange">2</div>
+          <div class="step-info">
+            <div class="step-title">What Needs to Be Done for Max Value?</div>
+            <div class="step-subtitle">Let the agent explain the problems</div>
+          </div>
+          <span class="step-toggle">▼</span>
+        </div>
+        <div class="step-content">
+          <div class="ask-box">
+            <div class="ask-label">ASK THIS</div>
+            <div class="ask-text">"What needs to be done to bring it to maximum value?"</div>
+          </div>
+
+          <div class="decisions">
+            <div class="decision-label">IF THEY SAY...</div>
+            
+            <div class="decision-item">
+              <div class="decision-letter">A</div>
+              <div class="decision-content">
+                <div class="decision-if">"Needs a lot" (roof, foundation, systems, big ticket items)</div>
+                <div class="decision-then">Your leverage improves. Move to Step 3.</div>
+              </div>
+            </div>
+
+            <div class="decision-item">
+              <div class="decision-letter">B</div>
+              <div class="decision-content">
+                <div class="decision-if">"Just paint and carpet" (minimizing)</div>
+                <div class="decision-then">Still go to Step 3, but mark <strong>DISCOUNT DIFFICULTY = HIGH</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flags-row">
+            <div class="flags-box red">
+              <div class="flags-title red">🚩 RED FLAGS</div>
+              <div class="flag-item">Agent refuses to acknowledge condition</div>
+              <div class="flag-item">"It's basically retail ready"</div>
+            </div>
+            <div class="flags-box green">
+              <div class="flags-title green">✅ GREEN FLAGS</div>
+              <div class="flag-item">Clear list of issues</div>
+              <div class="flag-item">"Cash buyer makes sense here"</div>
+              <div class="flag-item">Mentions seller fatigue / time pressure</div>
+            </div>
+          </div>
+
+          <div class="warning-box">
+            <div class="warning-title">🚫 DO NOT</div>
+            <div class="warning-item">• Argue about condition</div>
+            <div class="warning-item">• Try to prove them wrong</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="card">
+        <div class="step-header" onclick="toggleStep(this)">
+          <div class="step-number purple">3</div>
+          <div class="step-info">
+            <div class="step-title">What's It Worth After the Work?</div>
+            <div class="step-subtitle">Get their ARV anchor without arguing</div>
+          </div>
+          <span class="step-toggle">▼</span>
+        </div>
+        <div class="step-content">
+          <div class="ask-box">
+            <div class="ask-label">ASK THIS</div>
+            <div class="ask-text">"What do you think it's worth after finishing the work?"</div>
+          </div>
+
+          <div class="decisions">
+            <div class="decision-label">IF ARV IS...</div>
+            
+            <div class="decision-item">
+              <div class="decision-letter">A</div>
+              <div class="decision-content">
+                <div class="decision-if">Realistic</div>
+                <div class="decision-then">Acknowledge and proceed to Step 4</div>
+              </div>
+            </div>
+
+            <div class="decision-item">
+              <div class="decision-letter">B</div>
+              <div class="decision-content">
+                <div class="decision-if">Inflated / fantasy number</div>
+                <div class="decision-then">Proceed anyway — you'll need stronger Step 4 framing</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="warning-box">
+            <div class="warning-title">🚫 DO NOT</div>
+            <div class="warning-item">• Argue their ARV number</div>
+            <div class="warning-item">• Correct them or prove them wrong</div>
+            <div class="warning-item">• Get into a comp battle</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="card">
+        <div class="step-header" onclick="toggleStep(this)">
+          <div class="step-number teal">4</div>
+          <div class="step-info">
+            <div class="step-title">Explain How You Run Numbers</div>
+            <div class="step-subtitle">Prevent the "low baller" label — NO OFFER YET</div>
+          </div>
+          <span class="step-toggle">▼</span>
+        </div>
+        <div class="step-content">
+          <p style="color: rgba(255,255,255,0.7); margin-bottom: 16px; font-size: 14px;">This is where you explain math, not "because I'm greedy."</p>
+
+          <div class="checklist">
+            <div class="checklist-item">
+              <span class="check-icon">✓</span>
+              <span class="checklist-text">Say you don't want them thinking you're a low baller</span>
+            </div>
+            <div class="checklist-item">
+              <span class="check-icon">✓</span>
+              <span class="checklist-text">Explain you care about hitting specific numbers</span>
+            </div>
+            <div class="checklist-item">
+              <span class="check-icon">✓</span>
+              <span class="checklist-text">Explain you budget margin (~15% flipper profit)</span>
+            </div>
+            <div class="checklist-item">
+              <span class="check-icon">✓</span>
+              <span class="checklist-text">If numbers come in lower, it's because of the math</span>
+            </div>
+          </div>
+
+          <div class="decisions">
+            <div class="decision-label">IF THEY PUSH FOR AN OFFER...</div>
+            
+            <div class="decision-item">
+              <div class="decision-letter">→</div>
+              <div class="decision-content">
+                <div class="decision-if">Stall correctly: "I don't want to commit to a number yet"</div>
+                <div class="decision-then">Move forward to Step 5</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="warning-box">
+            <div class="warning-title">🚫 DO NOT</div>
+            <div class="warning-item">• Give a number on this call</div>
+            <div class="warning-item">• Get pinned down to a specific offer</div>
+            <div class="warning-item">• Justify or apologize for needing margin</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="card">
+        <div class="step-header" onclick="toggleStep(this)">
+          <div class="step-number pink">5</div>
+          <div class="step-info">
+            <div class="step-title">Are There Offers on the Table?</div>
+            <div class="step-subtitle">Reality check before you proceed</div>
+          </div>
+          <span class="step-toggle">▼</span>
+        </div>
+        <div class="step-content">
+          <div class="ask-box">
+            <div class="ask-label">ASK THIS</div>
+            <div class="ask-text">"Do you have any offers anywhere close to that number?"</div>
+          </div>
+
+          <div class="decisions">
+            <div class="decision-label">IF THEY SAY...</div>
+            
+            <div class="decision-item">
+              <div class="decision-letter">A</div>
+              <div class="decision-content">
+                <div class="decision-if">"Yes, offers are close"</div>
+                <div class="decision-then"><strong>Do NOT compete.</strong> Set expectations and exit.</div>
+              </div>
+            </div>
+
+            <div class="decision-item">
+              <div class="decision-letter">B</div>
+              <div class="decision-content">
+                <div class="decision-if">"Yes, but they're too low"</div>
+                <div class="decision-then">You've got room. Continue to Step 6.</div>
+              </div>
+            </div>
+
+            <div class="decision-item">
+              <div class="decision-letter">C</div>
+              <div class="decision-content">
+                <div class="decision-if">"No, nothing serious"</div>
+                <div class="decision-then">Mark <strong>NEGOTIATION OPPORTUNITY = HIGH</strong>. Continue.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="warning-box">
+            <div class="warning-title">🚫 DO NOT</div>
+            <div class="warning-item">• Compete against strong existing offers</div>
+            <div class="warning-item">• Chase when you're clearly outbid</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="card">
+        <div class="step-header" onclick="toggleStep(this)">
+          <div class="step-number yellow">6</div>
+          <div class="step-info">
+            <div class="step-title">Soft Anchor + Set the Next Call</div>
+            <div class="step-subtitle">Acknowledge reality + keep rapport</div>
+          </div>
+          <span class="step-toggle">▼</span>
+        </div>
+        <div class="step-content">
+          <p style="color: rgba(255,255,255,0.7); margin-bottom: 16px; font-size: 14px;">Two key things to do here:</p>
+
+          <div class="checklist">
+            <div class="checklist-item">
+              <span class="check-icon">1</span>
+              <span class="checklist-text">Signal you may be lower than seller wants <em>because of the numbers</em></span>
+            </div>
+            <div class="checklist-item">
+              <span class="check-icon">2</span>
+              <span class="checklist-text">Say you don't want to waste their time or tie them up</span>
+            </div>
+          </div>
+
+          <div class="decisions">
+            <div class="decision-label">NEXT STEP...</div>
+            
+            <div class="decision-item" style="background: rgba(46, 196, 182, 0.08); border: 1px solid rgba(46, 196, 182, 0.2);">
+              <div class="decision-letter" style="background: rgba(46, 196, 182, 0.2); color: #2EC4B6;">✓</div>
+              <div class="decision-content">
+                <div class="decision-if"><strong>Worth pursuing</strong></div>
+                <div class="decision-then">"Let's get the missing info and hop back on" → Schedule negotiation call</div>
+              </div>
+            </div>
+
+            <div class="decision-item" style="background: rgba(255, 0, 110, 0.05); border: 1px solid rgba(255, 0, 110, 0.15);">
+              <div class="decision-letter" style="background: rgba(255, 0, 110, 0.15); color: #FF006E;">✗</div>
+              <div class="decision-content">
+                <div class="decision-if"><strong>Not worth pursuing</strong></div>
+                <div class="decision-then">"No worries — if something changes down the line, keep me posted."</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phase 3: Post-Call -->
+    <section class="phase">
+      <div class="phase-header">
+        <span class="phase-number post">PHASE 3</span>
+        <h2 class="phase-title">Post-Call Decision</h2>
+      </div>
+
+      <div class="card">
+        <div class="step-content show" style="padding-top: 20px;">
+          <p style="color: rgba(255,255,255,0.6); margin-bottom: 20px; font-size: 14px;">Immediately after the call, pick one:</p>
+
+          <div class="outcomes-grid">
+            <div class="outcome-card green">
+              <div class="outcome-icon">🟢</div>
+              <div class="outcome-title green">GREEN LIGHT</div>
+              <div class="outcome-desc">Schedule Negotiation Call — enough alignment to proceed</div>
+            </div>
+            <div class="outcome-card yellow">
+              <div class="outcome-icon">🟡</div>
+              <div class="outcome-title yellow">YELLOW LIGHT</div>
+              <div class="outcome-desc">Get Missing Info — rehab scope, tenant info, disclosures, expectations</div>
+            </div>
+            <div class="outcome-card red">
+              <div class="outcome-icon">🔴</div>
+              <div class="outcome-title red">RED LIGHT</div>
+              <div class="outcome-desc">Close the Loop — not a fit, too retail, unrealistic seller, bidding war</div>
+            </div>
+          </div>
+
+          <p style="color: rgba(255,255,255,0.5); margin: 24px 0 12px; font-size: 13px; letter-spacing: 1px;">LOG THESE (stop winging it):</p>
+          
+          <div class="log-grid">
+            <div class="log-item"><span class="log-icon">📍</span> Process stage (early vs late)</div>
+            <div class="log-item"><span class="log-icon">🔧</span> Rehab severity (heavy vs light)</div>
+            <div class="log-item"><span class="log-icon">💰</span> ARV anchor (their number)</div>
+            <div class="log-item"><span class="log-icon">🎯</span> Seller motivation signals</div>
+            <div class="log-item"><span class="log-icon">⚔️</span> Offer competition level</div>
+            <div class="log-item"><span class="log-icon">➡️</span> Your next action (G/Y/R)</div>
+          </div>
+
+          <!-- Scoring Box -->
+          <div class="scoring-box">
+            <div class="scoring-title">📊 Quick Pass/Chase Score</div>
+            <div class="scoring-grid">
+              <div class="score-item">
+                <span class="score-label">Competition high</span>
+                <span class="score-value negative">-2</span>
+              </div>
+              <div class="score-item">
+                <span class="score-label">Rehab heavy</span>
+                <span class="score-value positive">+2</span>
+              </div>
+              <div class="score-item">
+                <span class="score-label">Agent acknowledges problems</span>
+                <span class="score-value positive">+1</span>
+              </div>
+              <div class="score-item">
+                <span class="score-label">Seller unrealistic</span>
+                <span class="score-value negative">-2</span>
+              </div>
+            </div>
+            <div class="scoring-result">
+              <div class="scoring-result-text">If your score is <strong>≤ 0</strong> → Don't chase. Move on.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Objection Matrix -->
+    <section class="phase">
+      <div class="phase-header">
+        <span class="phase-number objections">OBJECTIONS</span>
+        <h2 class="phase-title">Agent Objection Matrix</h2>
+      </div>
+
+      <!-- Objection 1 -->
+      <div class="card">
+        <div class="objection-header" onclick="toggleObjection(this)">
+          <div class="objection-number">1</div>
+          <div class="objection-text">"Are you just a low baller?"</div>
+          <span class="objection-toggle">▼</span>
+        </div>
+        <div class="objection-content">
+          <div class="objection-meaning">
+            <div class="objection-meaning-label">WHAT'S HAPPENING</div>
+            <div class="objection-meaning-text">They're protecting credibility + seller expectations</div>
+          </div>
+          <div class="objection-response">
+            <div class="objection-response-label">YOUR RESPONSE</div>
+            <div class="objection-response-text">Deny the frame. Explain you're number-driven and careful, not trying to steal houses. You hit specific margins or you don't buy.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Objection 2 -->
+      <div class="card">
+        <div class="objection-header" onclick="toggleObjection(this)">
+          <div class="objection-number">2</div>
+          <div class="objection-text">"What's your offer?" (too early)</div>
+          <span class="objection-toggle">▼</span>
+        </div>
+        <div class="objection-content">
+          <div class="objection-meaning">
+            <div class="objection-meaning-label">WHAT'S HAPPENING</div>
+            <div class="objection-meaning-text">They want you pinned down before you have info</div>
+          </div>
+          <div class="objection-response">
+            <div class="objection-response-label">YOUR RESPONSE</div>
+            <div class="objection-response-text">Don't commit yet. You need diligence/inspection first. "I don't want to throw out a number until I've done my homework."</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Objection 3 -->
+      <div class="card">
+        <div class="objection-header" onclick="toggleObjection(this)">
+          <div class="objection-number">3</div>
+          <div class="objection-text">"They already have offers / you're competing"</div>
+          <span class="objection-toggle">▼</span>
+        </div>
+        <div class="objection-content">
+          <div class="objection-meaning">
+            <div class="objection-meaning-label">WHAT'S HAPPENING</div>
+            <div class="objection-meaning-text">They're signaling you're late to the game</div>
+          </div>
+          <div class="objection-response">
+            <div class="objection-response-label">YOUR RESPONSE</div>
+            <div class="objection-response-text">Ask where offers are coming in. Calibrate. If they're close to asking, exit gracefully. Don't waste time competing.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Objection 4 -->
+      <div class="card">
+        <div class="objection-header" onclick="toggleObjection(this)">
+          <div class="objection-number">4</div>
+          <div class="objection-text">"They want X price"</div>
+          <span class="objection-toggle">▼</span>
+        </div>
+        <div class="objection-content">
+          <div class="objection-meaning">
+            <div class="objection-meaning-label">WHAT'S HAPPENING</div>
+            <div class="objection-meaning-text">Price anchor / seller expectation being set</div>
+          </div>
+          <div class="objection-response">
+            <div class="objection-response-label">YOUR RESPONSE</div>
+            <div class="objection-response-text">"If we can do it, great. If we can't, that's okay." Then check if they have offers near that number. If yes → probably not your deal.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Objection 5 -->
+      <div class="card">
+        <div class="objection-header" onclick="toggleObjection(this)">
+          <div class="objection-number">5</div>
+          <div class="objection-text">"Proof of funds?"</div>
+          <span class="objection-toggle">▼</span>
+        </div>
+        <div class="objection-content">
+          <div class="objection-meaning">
+            <div class="objection-meaning-label">WHAT'S HAPPENING</div>
+            <div class="objection-meaning-text">Legitimacy check / seller fear of tire-kickers</div>
+          </div>
+          <div class="objection-response">
+            <div class="objection-response-label">YOUR RESPONSE</div>
+            <div class="objection-response-text">Treat as normal paperwork, not a debate. Acknowledge and continue the process forward. "Absolutely, I can get that over once we're aligned on terms."</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Objection 6 -->
+      <div class="card">
+        <div class="objection-header" onclick="toggleObjection(this)">
+          <div class="objection-number">6</div>
+          <div class="objection-text">"What about commission / closing costs?"</div>
+          <span class="objection-toggle">▼</span>
+        </div>
+        <div class="objection-content">
+          <div class="objection-meaning">
+            <div class="objection-meaning-label">WHAT'S HAPPENING</div>
+            <div class="objection-meaning-text">Agent wants protection + clarity on their payday</div>
+          </div>
+          <div class="objection-response">
+            <div class="objection-response-label">YOUR RESPONSE</div>
+            <div class="objection-response-text">You're flexible. Happy to have representation if seller pays commission. You'll cover typical closing costs, title, escrow.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Objection 7 -->
+      <div class="card">
+        <div class="objection-header" onclick="toggleObjection(this)">
+          <div class="objection-number">7</div>
+          <div class="objection-text">"We need more earnest money / big down payment"</div>
+          <span class="objection-toggle">▼</span>
+        </div>
+        <div class="objection-content">
+          <div class="objection-meaning">
+            <div class="objection-meaning-label">WHAT'S HAPPENING</div>
+            <div class="objection-meaning-text">Seller security / fear of deal falling through</div>
+          </div>
+          <div class="objection-response">
+            <div class="objection-response-label">YOUR RESPONSE</div>
+            <div class="objection-response-text">Don't negotiate this on the second call — log it and address on negotiation call. Know your hard stops (e.g., "normally 15, maybe 20, can't do 30k down").</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-text">NO FLUFF PROGRAM © CASH SETUP CALL GAMEPLAN</div>
+    </footer>
+  </div>
+
+  <script>
+    function toggleStep(header) {
+      const content = header.nextElementSibling;
+      const isOpen = content.classList.contains('show');
+      
+      // Close all others
+      document.querySelectorAll('.step-content').forEach(c => {
+        if (c !== content && !c.style.paddingTop) {
+          c.classList.remove('show');
+          c.previousElementSibling.classList.remove('active');
+        }
+      });
+      
+      // Toggle this one
+      if (isOpen) {
+        content.classList.remove('show');
+        header.classList.remove('active');
+      } else {
+        content.classList.add('show');
+        header.classList.add('active');
+      }
+    }
+
+    function toggleObjection(header) {
+      const content = header.nextElementSibling;
+      const isOpen = content.classList.contains('show');
+      
+      // Toggle this one
+      if (isOpen) {
+        content.classList.remove('show');
+        header.classList.remove('active');
+      } else {
+        content.classList.add('show');
+        header.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
